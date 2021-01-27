@@ -6,17 +6,18 @@ Created on Wed Jan 27 19:29:38 2021
 """
 
 from textblob import TextBlob
+import nltk
+nltk.download('punkt')
 
 
-
-
-
-ip = input("Enter Sentence")
-wordlist = ip.strip()
+ip = input("Enter Sentence \n")
+print("Sentence Entered : ",ip)
+wordlist = ip.split()
 corrected = []
-print(wordlist)
+
 for word in wordlist:
     corrected.append(TextBlob(word))
-for e in corrected:
-    print(e.correct(), end=" ")
 
+print("Corrected Sentence Is: ")
+for e in corrected:
+    print(str(e.correct()), end=" ")   
